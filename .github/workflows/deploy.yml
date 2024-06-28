@@ -1,9 +1,10 @@
 name: Deploy Azure Resources using Terraform
 
 on:
-  push:
+  pull_request:
     branches:
-      - master
+      - main  # Se ejecuta cuando se crea o actualiza un PR hacia la rama main
+      
   workflow_dispatch:  # Permite ejecutar manualmente el workflow desde la pestaña de Actions
 
 permissions:
