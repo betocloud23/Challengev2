@@ -1,5 +1,5 @@
 ### CREAR RG  ###
-resource "azurerm_resource_group" "tranzact" {
+resource "azurerm_resource_group" "app3tranzact" {
   name     = "${var.prefix}-rg"
   location = var.location
   tags = {
@@ -8,20 +8,20 @@ resource "azurerm_resource_group" "tranzact" {
 
 }
 ### CREAR Vnet  ###
-resource "azurerm_virtual_network" "main" {
+resource "azurerm_virtual_network" "app3main" {
   name                = "${var.prefix}-vnet"
   address_space       = var.vnetcidr
-  location            = azurerm_resource_group.tranzact.location
-  resource_group_name = azurerm_resource_group.tranzact.name
+  location            = azurerm_resource_group.app3tranzact.location
+  resource_group_name = azurerm_resource_group.app3tranzact.name
   tags = {
     Owner = var.Owner
   }
 }
 ### CREAR Subnet  ###
-resource "azurerm_subnet" "internal" {
+resource "azurerm_subnet" "app3internal" {
   name                 = "internal"
-  resource_group_name  = azurerm_resource_group.tranzact.name
-  virtual_network_name = azurerm_virtual_network.main.name
+  resource_group_name  = azurerm_resource_group.app3tranzact.name
+  virtual_network_name = azurerm_virtual_network.app3main.name
   address_prefixes     = var.subnet_cidr
 
   service_endpoints = [
@@ -34,16 +34,16 @@ resource "azurerm_subnet" "internal" {
 
 
 ### CREAR NIC ###
-resource "azurerm_network_interface" "main" {
+resource "azurerm_network_interface" "app3main" {
   name                = "${var.prefix}-nic"
-  location            = azurerm_resource_group.tranzact.location
-  resource_group_name = azurerm_resource_group.tranzact.name
+  location            = azurerm_resource_group.app3tranzact.location
+  resource_group_name = azurerm_resource_group.app3tranzact.name
   tags = {
     Owner = var.Owner
   }
   ip_configuration {
     name                          = "ip-01"
-    subnet_id                     = azurerm_subnet.internal.id
+    subnet_id                     = azurerm_subnet.app3internal.id
     private_ip_address_allocation = "Dynamic"
 
   }
@@ -52,10 +52,10 @@ resource "azurerm_network_interface" "main" {
 
 
 ### CREAR NSG  ###
-resource "azurerm_network_security_group" "nsg" {
+resource "azurerm_network_security_group" "app3nsg" {
   name                = "${var.prefix}-nsg"
-  location            = azurerm_resource_group.tranzact.location
-  resource_group_name = azurerm_resource_group.tranzact.name
+  location            = azurerm_resource_group.app3tranzact.location
+  resource_group_name = azurerm_resource_group.app3tranzact.name
   tags = {
     Owner = var.Owner
   }
@@ -74,14 +74,14 @@ resource "azurerm_network_security_group" "nsg" {
 }
 ## Attach NSG to Subnet##
 resource "azurerm_subnet_network_security_group_association" "nsg" {
-  subnet_id                 = azurerm_subnet.internal.id
-  network_security_group_id = azurerm_network_security_group.nsg.id
+  subnet_id                 = azurerm_subnet.app3internal.id
+  network_security_group_id = azurerm_network_security_group.app3nsg.id
 }
 ## Create KeyVault ##
-resource "azurerm_key_vault" "vault" {
+resource "azurerm_key_vault" "app3vault3" {
   name                     = "${var.prefix}-keyvault"
-  resource_group_name      = azurerm_resource_group.tranzact.name
-  location                 = azurerm_resource_group.tranzact.location
+  resource_group_name      = azurerm_resource_group.app3tranzact.name
+  location                 = azurerm_resource_group.app3tranzact.location
   tenant_id                = var.tenant_id
   purge_protection_enabled = true
   sku_name                 = "standard"
@@ -98,24 +98,24 @@ resource "azurerm_key_vault" "vault" {
 
     ip_rules = [var.allowed_ip_address]
 
-    virtual_network_subnet_ids = [azurerm_subnet.internal.id]
+    virtual_network_subnet_ids = [azurerm_subnet.app3internal.id]
   }
   tags = {
     Owner = var.Owner
   }
 }
 ##Create Storage Account##
-resource "azurerm_storage_account" "stga" {
+resource "azurerm_storage_account" "app3stga" {
   name                     = "${var.prefix}st499"
-  resource_group_name      = azurerm_resource_group.tranzact.name
-  location                 = azurerm_resource_group.tranzact.location
+  resource_group_name      = azurerm_resource_group.app3tranzact.name
+  location                 = azurerm_resource_group.app3tranzact.location
   account_tier             = var.account_tier
   account_replication_type = var.account_replication_type
 
   network_rules {
     default_action             = "Deny"
     ip_rules                   = ["170.246.58.126"]
-    virtual_network_subnet_ids = [azurerm_subnet.internal.id]
+    virtual_network_subnet_ids = [azurerm_subnet.app3internal.id]
   }
 
   tags = {
