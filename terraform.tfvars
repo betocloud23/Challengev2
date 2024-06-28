@@ -1,5 +1,5 @@
 location                 = "East US 2"
-prefix                   = "tranzact2"
+prefix2                  = "tranzact2"
 Owner                    = "Alberto C."
 account_tier             = "Standard"
 account_replication_type = "LRS"

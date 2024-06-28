@@ -20,7 +20,7 @@ module "app2" {
 
   account_tier             = var.account_tier
   location                 = var.location
-  prefix                   = var.prefix3
+  prefix                   = var.prefix2
   Owner                    = var.Owner
   subnet_cidr              = var.subnet_cidr
   client_id                = var.client_id
