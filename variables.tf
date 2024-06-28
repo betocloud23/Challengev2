@@ -14,7 +14,7 @@ variable "account_tier" {
 variable "account_replication_type" {
 
 }
-variable "subnet_name" {
+variable "subnet_cidr" {
 
 }
 variable "allowed_ip_address" {
@@ -27,3 +27,9 @@ variable "client_id" {
 
   sensitive = true
 }
+
+variable "prefix3" {
+
+
+}
+
