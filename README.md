@@ -10,7 +10,7 @@ Declarar un nuevo prefix en el archivo .tfvars para que los recursos tengan nomb
 
 
 ## Estructura del Proyecto
-```plaintext
+
 ├──  .github
   └── workflows
     ├── deploy.yml
