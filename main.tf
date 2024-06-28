@@ -1,33 +1,14 @@
 module "app" {
 
-  source = "../APP2"
-}
-variable "prefix" {
+  source = "./APP2"
 
-}
-variable "location" {
-
-}
-variable "Owner" {
-
-}
-
-variable "account_tier" {
-
-}
-variable "account_replication_type" {
-
-}
-variable "subnet_name" {
-
-}
-variable "allowed_ip_address" {
-
-}
-variable "tenant_id" {
-
-}
-variable "client_id" {
-
-  sensitive = true
+  account_tier             = var.account_tier
+  location                 = var.location
+  prefix                   = var.prefix
+  Owner                    = var.Owner
+  subnet_name              = var.subnet_name
+  client_id                = var.client_id
+  tenant_id                = var.tenant_id
+  allowed_ip_address       = var.allowed_ip_address
+  account_replication_type = var.account_replication_type
 }
