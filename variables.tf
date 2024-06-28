@@ -33,3 +33,7 @@ variable "prefix3" {
 
 }
 
+variable "vnetcidr" {
+
+
+}

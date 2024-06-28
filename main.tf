@@ -11,6 +11,7 @@ module "app3" {
   tenant_id                = var.tenant_id
   allowed_ip_address       = var.allowed_ip_address
   account_replication_type = var.account_replication_type
+  vnetcidr                 = var.vnetcidr
 }
 
 module "app2" {
@@ -26,4 +27,5 @@ module "app2" {
   tenant_id                = var.tenant_id
   allowed_ip_address       = var.allowed_ip_address
   account_replication_type = var.account_replication_type
+  vnetcidr                 = var.vnetcidr
 }
