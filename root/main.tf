@@ -1,6 +1,6 @@
 module "app" {
 
-  source = "../APP2"
+  source = "./APP2"
 }
 variable "prefix" {
 
