@@ -34,6 +34,6 @@ variable "prefix3" {
 }
 
 variable "vnetcidr" {
-
+  type = list(string)
 
 }

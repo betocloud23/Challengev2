@@ -29,6 +29,6 @@ variable "client_id" {
 }
 
 variable "vnetcidr" {
-
+  type = list(string)
 
 }
