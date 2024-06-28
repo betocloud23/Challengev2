@@ -1,4 +1,4 @@
-variable "prefix" {
+variable "prefix2" {
 
 }
 variable "location" {
