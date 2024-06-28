@@ -1,4 +1,4 @@
 module "app" {
 
-  source = "./APP2"
+  source = "../APP2"
 }
