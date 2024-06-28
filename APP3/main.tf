@@ -10,7 +10,7 @@ resource "azurerm_resource_group" "tranzact" {
 ### CREAR Vnet  ###
 resource "azurerm_virtual_network" "main" {
   name                = "${var.prefix}-vnet"
-  address_space       = ["10.12.0.0/16"]
+  address_space       = var.vnetcidr
   location            = azurerm_resource_group.tranzact.location
   resource_group_name = azurerm_resource_group.tranzact.name
   tags = {
