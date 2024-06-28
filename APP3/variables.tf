@@ -29,5 +29,5 @@ variable "client_id" {
 }
 variable "vnetcidr" {
 
-  sensitive = true
+
 }
