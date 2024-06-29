@@ -14,7 +14,7 @@ variable "account_tier" {
 variable "account_replication_type" {
 
 }
-variable "subnet_name" {
+variable "subnet_cidr" {
 
 }
 variable "allowed_ip_address" {
@@ -26,4 +26,9 @@ variable "tenant_id" {
 variable "client_id" {
 
   sensitive = true
+}
+
+variable "vnetcidr" {
+  type = list(string)
+
 }

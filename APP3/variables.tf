@@ -1,4 +1,4 @@
-variable "prefix2" {
+variable "prefix" {
 
 }
 variable "location" {
@@ -27,12 +27,6 @@ variable "client_id" {
 
   sensitive = true
 }
-
-variable "prefix3" {
-
-
-}
-
 variable "vnetcidr" {
   type = list(string)
 
