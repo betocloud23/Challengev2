@@ -12,10 +12,14 @@ testtest1
 =======
 <<<<<<< HEAD
 
+<<<<<<< HEAD
+
+=======
 =======
 test
 >>>>>>> origin/master
 >>>>>>> 43e28ae97072fbffb6e2f8c3999b975001d6e11e
+>>>>>>> 1f918f0a8cf896b0ccaf727aa1c01ae7e5b9922f
 ## Estructura del Proyecto
 ```plaintext
 ├──  .github
