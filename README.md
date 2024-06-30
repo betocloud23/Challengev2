@@ -4,11 +4,10 @@ Este proyecto utiliza Terraform para desplegar una infraestructura en Azure, org
 Los módulos principales incluyen la creación de un rg, una vnet, subredes, una interfaz de red, un grupo de nsg, un Key Vault y un storage account.
 
 # Consideraciones
-Para la implementación y ejecución de este módulo se está utilizando el método de conexión mediante Service Principal
-Para establecer una conexión segura y gestión de identidades de Github action e Azure, se debe habilitar Federated credentials para el Service Principal
-Declarar un nuevo prefix en el archivo .tfvars para que los recursos tengan nombre unicos
+Para la implementación y ejecución de este módulo se está utilizando el método de conexión mediante Service Principal.
+Para establecer una conexión segura y gestión de identidades de Github action e Azure, se debe habilitar Federated credentials para el Service Principal.
+Declarar un nuevo prefix en el archivo .tfvars para que los recursos tengan nombre unicos.
 
-test
 ## Estructura del Proyecto
 ```plaintext
 ├──  .github
