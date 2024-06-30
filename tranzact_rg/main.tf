@@ -7,7 +7,7 @@ resource "azurerm_resource_group" "app3tranzact" {
 }
 
 resource "azurerm_resource_group" "app2tranzact" {
-  name     = "${var.prefix}-rg"
+  name     = "${var.prefix}-rg02"
   location = var.location
   tags = {
     Owner = var.Owner
