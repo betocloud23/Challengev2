@@ -8,10 +8,14 @@ Para la implementación y ejecución de este módulo se está utilizando el mét
 Para establecer una conexión segura y gestión de identidades de Github action e Azure, se debe habilitar Federated credentials para el Service Principal.
 Declarar un nuevo prefix en el archivo .tfvars para que los recursos tengan nombre unicos.
 <<<<<<< HEAD
+testtest1
+=======
+<<<<<<< HEAD
 
 =======
 test
 >>>>>>> origin/master
+>>>>>>> 43e28ae97072fbffb6e2f8c3999b975001d6e11e
 ## Estructura del Proyecto
 ```plaintext
 ├──  .github
