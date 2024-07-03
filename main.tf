@@ -21,7 +21,7 @@ module "tranzact_vnet" {
   Owner               = var.Owner
 }
 
-module "subnets" {
+module "tranzact_subnet" {
   source               = "./tranzact_subnet"
   for_each             = { for vnet in var.vnets : vnet.name => vnet }
   resource_group_name  = module.tranzact_rg.name
