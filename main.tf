@@ -1,7 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
 module "tranzact_rg" {
   source   = "./tranzact_rg"
   prefix   = var.prefix
