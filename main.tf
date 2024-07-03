@@ -9,7 +9,7 @@ module "tranzact_rg" {
   Owner    = var.Owner
 }
 
-module "vnetcidr" {
+module "tranzact_vnet" {
   source              = "./tranzact_vnet"
   for_each            = { for vnet in var.vnets : vnet.name => vnet }
   prefix              = var.prefix
