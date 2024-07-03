@@ -1,42 +1,43 @@
+variable "vnets" {
+  description = "List of virtual networks and their subnets"
+  type = list(object({
+    name = string
+    cidr = list(string)
+    subnets = list(object({
+      name = string
+      cidr = string
+    }))
+  }))
+}
+
 variable "prefix" {
-  description = "Prefix for naming resources"
+  type = string
 }
 
 variable "location" {
-  description = "The location where resources will be created"
+  type = string
 }
 
 variable "Owner" {
-  description = "Owner tag for resources"
-}
-
-variable "account_tier" {
-  description = "The tier of the storage account"
-}
-
-variable "account_replication_type" {
-  description = "The replication type of the storage account"
-}
-
-variable "subnet_cidr" {
-  description = "CIDR block for the subnet"
-  type        = list(string)
-}
-
-variable "allowed_ip_address" {
-  description = "IP address allowed to access the Key Vault"
+  type = string
 }
 
 variable "tenant_id" {
-  description = "The tenant ID for Azure"
+  type = string
 }
 
 variable "client_id" {
-  description = "The client ID for access policy"
-  sensitive   = true
+  type = string
 }
 
-variable "vnetcidr" {
-  description = "CIDR block for the virtual network"
-  type        = list(string)
+variable "allowed_ip_address" {
+  type = string
+}
+
+variable "account_tier" {
+  type = string
+}
+
+variable "account_replication_type" {
+  type = string
 }
