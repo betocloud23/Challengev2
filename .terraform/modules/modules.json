@@ -1,1 +1,49 @@
-{"Modules":[{"Key":"tranzact_subnet_nsg","Source":"./tranzact_subnet_nsg","Dir":"tranzact_subnet_nsg"},{"Key":"","Source":"","Dir":"."},{"Key":"tranzact_nic","Source":"./tranzact_nic","Dir":""},{"Key":"tranzact_storage_account","Source":"./tranzact_storage_account","Dir":""},{"Key":"tranzact_vnet","Source":"./tranzact_vnet","Dir":"tranzact_vnet"},{"Key":"tranzact_keyvault","Source":"./tranzact_keyvault","Dir":""},{"Key":"tranzact_rg","Source":"./tranzact_rg","Dir":"tranzact_rg"},{"Key":"tranzact_nsg","Source":"./tranzact_nsg","Dir":"tranzact_nsg"},{"Key":"tranzact_subnet","Source":"./tranzact_subnet","Dir":"tranzact_subnet"}]}
+{
+    "Modules": [
+        {
+            "Key": "tranzact_subnet_nsg",
+            "Source": "./tranzact_subnet_nsg",
+            "Dir": "tranzact_subnet_nsg"
+        },
+        {
+            "Key": "",
+            "Source": "",
+            "Dir": "."
+        },
+        {
+            "Key": "tranzact_nic",
+            "Source": "./tranzact_nic",
+            "Dir": ""
+        },
+        {
+            "Key": "tranzact_storage_account",
+            "Source": "./tranzact_storage_account",
+            "Dir": ""
+        },
+        {
+            "Key": "tranzact_vnet",
+            "Source": "./tranzact_vnet",
+            "Dir": "tranzact_vnet"
+        },
+        {
+            "Key": "tranzact_keyvault",
+            "Source": "./tranzact_keyvault",
+            "Dir": ""
+        },
+        {
+            "Key": "tranzact_rg",
+            "Source": "./tranzact_rg",
+            "Dir": "tranzact_rg"
+        },
+        {
+            "Key": "tranzact_nsg",
+            "Source": "./tranzact_nsg",
+            "Dir": "tranzact_nsg"
+        },
+        {
+            "Key": "tranzact_subnet",
+            "Source": "./tranzact_subnet",
+            "Dir": "tranzact_subnet"
+        }
+    ]
+}
