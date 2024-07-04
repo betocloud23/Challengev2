@@ -34,10 +34,10 @@ module "tranzact_nsg" {
 }
 
 module "tranzact_subnet_nsg" {
-  for_each                  = { for vnet in var.vnets : vnet.name => vnet }
-  source                    = "./tranzact_subnet_nsg"
-  subnet_id                 = module.tranzact_subnet[vnet.name].subnet_ids[vnet.subnets[1].name]
-  network_security_group_id = module.tranzact_nsg.id
+  source     = "./tranzact_subnet_nsg"
+  for_each   = { for vnet in var.vnets : vnet.name => vnet }
+  subnet_ids = module.tranzact_subnet[each.key].subnet_ids
+  nsg_id     = module.tranzact_nsg.id
 }
 
 module "tranzact_keyvault" {
