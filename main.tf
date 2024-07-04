@@ -21,7 +21,7 @@ module "tranzact_subnet" {
   source               = "./tranzact_subnet"
   for_each             = { for vnet in var.vnets : vnet.name => vnet }
   resource_group_name  = module.tranzact_rg.name
-  virtual_network_name = module.vnetcidr[each.key].app3main.name
+  virtual_network_name = module.tranzact_vnet[each.key].app3main.name
   subnets              = each.value.subnets
 }
 
@@ -48,7 +48,7 @@ module "tranzact_keyvault" {
   tenant_id           = var.tenant_id
   client_id           = var.client_id
   allowed_ip_address  = var.allowed_ip_address
-  subnet_id           = module.subnets["vnet1"]["subnet"]["vnet1-private-subnet"].app3internal.id
+  subnet_id           = module.tranzact_subnet["vnet1"].app3internal["vnet1-private-subnet"].id
   Owner               = var.Owner
 }
 
@@ -60,6 +60,6 @@ module "tranzact_storage_account" {
   account_tier             = var.account_tier
   account_replication_type = var.account_replication_type
   allowed_ip_address       = var.allowed_ip_address
-  subnet_id                = module.subnets["vnet1"]["subnet"]["vnet1-private-subnet"].app3internal.id
+  subnet_id                = module.tranzact_subnet["vnet1"].app3internal["vnet1-private-subnet"].id
   Owner                    = var.Owner
 }
