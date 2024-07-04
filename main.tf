@@ -25,7 +25,6 @@ module "tranzact_subnet" {
   subnets              = each.value.subnets
 }
 
-
 module "tranzact_nsg" {
   source              = "./tranzact_nsg"
   prefix              = var.prefix
@@ -35,9 +34,9 @@ module "tranzact_nsg" {
 }
 
 module "tranzact_subnet_nsg" {
-  for_each                  = { for vnet, data in module.tranzact_subnet : vnet => data }
+  for_each                  = { for vnet in var.vnets : vnet.name => vnet }
   source                    = "./tranzact_subnet_nsg"
-  subnet_id                 = each.value.subnet_ids[each.key]
+  subnet_id                 = module.tranzact_subnet[vnet.name].subnet_ids[vnet.subnets[1].name]
   network_security_group_id = module.tranzact_nsg.id
 }
 
