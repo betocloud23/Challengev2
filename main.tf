@@ -21,7 +21,7 @@ module "tranzact_subnet" {
   source               = "./tranzact_subnet"
   for_each             = { for vnet in var.vnets : vnet.name => vnet }
   resource_group_name  = module.tranzact_rg.name
-  virtual_network_name = module.tranzact_vnet[each.key].app3main.name
+  virtual_network_name = module.tranzact_vnet[each.key].name
   subnets              = each.value.subnets
 }
 
@@ -34,7 +34,7 @@ module "tranzact_nsg" {
 }
 
 module "tranzact_subnet_nsg" {
-  for_each                  = { for vnet, data in module.subnets : vnet => data }
+  for_each                  = { for vnet, data in module.tranzact_subnet : vnet => data }
   source                    = "./tranzact_subnet_nsg"
   subnet_id                 = each.value.app3internal.id
   network_security_group_id = module.tranzact_nsg.id
