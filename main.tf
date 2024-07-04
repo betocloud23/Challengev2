@@ -25,6 +25,7 @@ module "tranzact_subnet" {
   subnets              = each.value.subnets
 }
 
+
 module "tranzact_nsg" {
   source              = "./tranzact_nsg"
   prefix              = var.prefix
